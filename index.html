@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TYT</title>
+    <!-- Js links Here  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      body {
+        background: #64748b;
+      }
+      .srs_subscription_card .save {
+        text-align: right !important;
+      }
+
+      .srs_subscription_card .amounteb {
+        text-align: left !important;
+      }
+      .srs_subscription_card .quantity-sec1 {
+        text-align: center;
+        margin: 0 auto;
+        padding: 0px !important;
+      }
+      .srs_subscription_card .price1 {
+        color: #fff;
+        text-align: center;
+        font-family: "Inter";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin: 10px 0;
+      }
+      .srs_subscription_card .price1 span {
+        color: #fff;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .srs_subscription_card .total {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 23px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #848199;
+      }
+      .srs_subscription_card .total-price {
+        color: #fff;
+        text-align: center;
+        font-family: "Inter";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      .foy-tm-card .quantity-sec1 h5 {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 18px;
+        color: #515151;
+      }
+      .srs_subscription_card button.button1 {
+        height: 28px;
+        width: 28px;
+        font-size: 16px;
+        line-height: 0;
+        color: #fff;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 43.75px;
+        background: #200033;
+      }
+      .srs_subscription_card button.button0 {
+        height: 28px;
+        width: 28px;
+        font-size: 16px;
+        line-height: 0;
+        color: #4f2e85;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 43.75px;
+        background: #fff;
+      }
+      .srs_subscription_card input#demoInput1 {
+        width: 120.833px;
+        height: 40px;
+        border-radius: 110px;
+        background: #634078;
+        text-align: center;
+        font-family: "inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #fff;
+      }
+      .srs_subscription_card .sa_ctm_btn1 {
+        display: block;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 20px;
+        width: 100%;
+        height: 50px;
+        color: #64748b !important;
+        font-size: 18px;
+        font-family: "Inter" !important;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #00c7b2;
+        border: 1px solid #4f2e85;
+        border-radius: 125px;
+        background: #fff;
+        margin-right: 60px;
+      }
+      .srs_subscription_card .add-to-cart-parent {
+        padding: 0 34px;
+      }
+      .srs_subscription_card .sa_ctm_btn1:hover {
+        color: #000000 !important;
+      }
+      .foy-cln {
+        margin-top: 14px;
+        margin-bottom: 0px;
+        color: #fff;
+        font-family: "Inter";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        opacity: 0.7;
+      }
+
+      .displayed-price .disone,
+      .displayed-price .distwo,
+      .displayed-price .disthree {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 16px 0;
+        border-radius: 8px;
+        padding: 8px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+      }
+
+      .displayed-price {
+        margin-bottom: 35px;
+      }
+
+      .displayed-price .disone h3,
+      .displayed-price .distwo h3,
+      .displayed-price .disthree h3 {
+        margin: 0px;
+        color: #fff;
+        font-family: "Inter";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      .displayed-price .disone:hover h3,
+      .displayed-price .distwo:hover h3,
+      .displayed-price .disthree:hover h3 {
+        color: #fff;
+      }
+
+      .displayed-price .disone h2,
+      .displayed-price .distwo h2,
+      .displayed-price .disthree h2 {
+        margin: 0px;
+        color: #fff;
+        text-align: center;
+        font-family: "Inter";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+      }
+      .displayed-price .disone h2 span,
+      .displayed-price .distwo h2 span,
+      .displayed-price .disthree h2 span {
+        margin: 0px;
+        color: #fff;
+        font-family: "Inter";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      .displayed-price .disone:hover h2,
+      .displayed-price .distwo:hover h2,
+      .displayed-price .disthree:hover h2 {
+        color: #fff;
+      }
+
+      .displayed-price .disone:hover,
+      .displayed-price .distwo:hover,
+      .displayed-price .disthree:hover {
+        background: #200033;
+        border-color: #fff;
+      }
+      .foy-cfg .active {
+        background: #3c2363;
+        border-color: #fff;
+      }
+      .foy-cfg .active h2,
+      .foy-cfg .active h3 {
+        color: #ffffff !important;
+      }
+      .displayed-price .disone,
+      .displayed-price .distwo,
+      .displayed-price .disthree {
+        margin: 16px 0;
+      }
+
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .foy-tm-card .quantity-sec1 {
+          margin-top: 20px;
+        }
+        .foy-tm-card button.button1 {
+          height: 40px;
+          width: 40px;
+          font-size: 25px;
+        }
+        .foy-tm-card input#demoInput {
+          width: 150px;
+          height: 40px;
+        }
+        .foy-tm-card .sa_ctm_btn {
+          width: 240px;
+          height: 45px;
+          font-size: 16px;
+        }
+        .foy-tm-card .tableOne td {
+          padding: 12px 0px 12px 20px !important;
+        }
+        .foy-tm-card .col-md-6 {
+          padding: 0px;
+        }
+        .foy-tm-card .col-md-4 {
+          padding: 0px;
+        }
+        .foy-tm-card .tableOne td {
+          text-align: left;
+        }
+        .srs_subscription_card .add-to-cart-parent {
+          padding: 0px;
+        }
+      }
+      @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .foy-tm-card .quantity-sec1 {
+        }
+      }
+
+      @media only screen and (min-width: 1025px) and (max-width: 1920px) {
+        /* .quantity-sec1 {
+    margin-right: 28px;
+  } */
+      }
+      .srs_subscription_card2 .save {
+        text-align: right !important;
+      }
+
+      .srs_subscription_card2 .amounteb {
+        text-align: left !important;
+      }
+      .srs_subscription_card2 .quantity-sec1 {
+        text-align: center;
+        margin: 0 auto;
+        padding: 0px !important;
+      }
+      .srs_subscription_card2 .price1 {
+        color: #7b5294;
+        text-align: center;
+        font-family: "Inter";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin: 10px 0;
+      }
+      .srs_subscription_card2 .price1 span {
+        color: #33385a;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .srs_subscription_card2 .total {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 23px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #848199;
+      }
+      .srs_subscription_card2 .total-price {
+        color: #7b5294;
+        text-align: center;
+        font-family: "Inter";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      .srs_subscription_card2 .total-price span {
+        color: #33385a;
+      }
+      .foy-tm-card .quantity-sec1 h5 {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 18px;
+        color: #515151;
+      }
+      .srs_subscription_card2 button.button1 {
+        height: 28px;
+        width: 28px;
+        font-size: 16px;
+        line-height: 0;
+        color: #fff;
+        border: 1px solid #4f2e85;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 43.75px;
+        background: #7b5294;
+      }
+      .srs_subscription_card2 button.button0 {
+        height: 28px;
+        width: 28px;
+        font-size: 16px;
+        line-height: 0;
+        color: #4f2e85;
+        border: 1px solid #4f2e85;
+        box-sizing: border-box;
+        border-radius: 43.75px;
+        background: #fff;
+      }
+      .srs_subscription_card2 input#demoInput2 {
+        width: 120.833px;
+        height: 40px;
+        border-radius: 110px;
+        background: #f6f4f9;
+        text-align: center;
+        font-family: "inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #33385a;
+      }
+      .srs_subscription_card2 .sa_ctm_btn2 {
+        display: block;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 20px;
+        width: 100%;
+        height: 50px;
+        color: #fff;
+        font-size: 18px;
+        font-family: "Inter" !important;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        border: 1px solid #4f2e85;
+        border-radius: 125px;
+        background: #7b5294;
+        margin-right: 60px;
+      }
+      .srs_subscription_card2 .add-to-cart-parent {
+        padding: 0 74px;
+      }
+      .srs_subscription_card2 .sa_ctm_btn2:hover {
+        color: #7b5294 !important;
+        background: #fff;
+      }
+      .srs_subscription_card2 .foy-cln {
+        margin-top: 14px;
+        margin-bottom: 10px;
+        color: #33385a;
+        font-family: "Inter";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        opacity: 0.7;
+      }
+
+      .srs_subscription_card2 .displayed-price .disone,
+      .srs_subscription_card2 .displayed-price .distwo,
+      .srs_subscription_card2 .displayed-price .disthree {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 16px 0;
+        border-radius: 8px;
+        padding: 8px 15px;
+        border: 1px solid rgba(134, 75, 216, 0.3);
+        border-radius: 8px;
+      }
+
+      .srs_subscription_card2 .displayed-price {
+        margin-bottom: 35px;
+      }
+
+      .srs_subscription_card2 .displayed-price .disone h3,
+      .srs_subscription_card2 .displayed-price .distwo h3,
+      .srs_subscription_card2 .displayed-price .disthree h3 {
+        margin: 0px;
+        color: #33385a;
+        font-family: "Inter";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      .srs_subscription_card2 .displayed-price .disone:hover h3,
+      .srs_subscription_card2 .displayed-price .distwo:hover h3,
+      .srs_subscription_card2 .displayed-price .disthree:hover h3 {
+        color: #fff;
+      }
+
+      .srs_subscription_card2 .displayed-price .disone h2,
+      .srs_subscription_card2 .displayed-price .distwo h2,
+      .srs_subscription_card2 .displayed-price .disthree h2 {
+        margin: 0px;
+        color: #7b5294;
+        text-align: center;
+        font-family: "Inter";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+      }
+      .srs_subscription_card2 .displayed-price .disone h2 span,
+      .srs_subscription_card2 .displayed-price .distwo h2 span,
+      .srs_subscription_card2 .displayed-price .disthree h2 span {
+        margin: 0px;
+        color: #33385a;
+        font-family: "Inter";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      .srs_subscription_card2 .displayed-price .disone:hover h2,
+      .srs_subscription_card2 .displayed-price .distwo:hover h2,
+      .srs_subscription_card2 .displayed-price .disthree:hover h2 {
+        color: #fff;
+      }
+      .srs_subscription_card2 .displayed-price .disone:hover h2 span,
+      .srs_subscription_card2 .displayed-price .distwo:hover h2 span,
+      .srs_subscription_card2 .displayed-price .disthree:hover h2 span {
+        color: #fff;
+      }
+
+      .srs_subscription_card2 .displayed-price .disone:hover,
+      .srs_subscription_card2 .displayed-price .distwo:hover,
+      .srs_subscription_card2 .displayed-price .disthree:hover {
+        background: #200033;
+        border-color: #fff;
+      }
+
+      .srs_subscription_card2 .foy-cfg .active {
+        background: #3c2363;
+        border-color: #fff;
+      }
+      .srs_subscription_card2 .foy-cfg .active h2,
+      .foy-cfg .active h3 {
+        color: #ffffff !important;
+      }
+      .srs_subscription_card2 .displayed-price .disone,
+      .srs_subscription_card2 .displayed-price .distwo,
+      .srs_subscription_card2 .displayed-price .disthree {
+        margin: 16px 0;
+      }
+
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .srs_subscription_card2 .quantity-sec1 {
+          margin-top: 20px;
+        }
+        .srs_subscription_card2 button.button1 {
+          height: 40px;
+          width: 40px;
+          font-size: 25px;
+        }
+        .srs_subscription_card2 input#demoInput {
+          width: 150px;
+          height: 40px;
+        }
+        .srs_subscription_card2 .sa_ctm_btn {
+          width: 240px;
+          height: 45px;
+          font-size: 16px;
+        }
+        .srs_subscription_card2 .tableOne td {
+          padding: 12px 0px 12px 20px !important;
+        }
+        .srs_subscription_card2 .col-md-6 {
+          padding: 0px;
+        }
+        .srs_subscription_card2 .col-md-4 {
+          padding: 0px;
+        }
+        .srs_subscription_card2 .tableOne td {
+          text-align: left;
+        }
+        .srs_subscription_card2 .add-to-cart-parent {
+          padding: 0px;
+        }
+      }
+      @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .foy-tm-card .quantity-sec1 {
+        }
+      }
+
+      @media only screen and (min-width: 1025px) and (max-width: 1920px) {
+        /* .quantity-sec1 {
+      margin-right: 28px;
+    } */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quantity-sec1 text-center">
+      <div class="displayed-price">
+        <div class="disone active" id="disone">
+          <h3>5-20 Learners</h3>
+          <h2>£99<span>/learner</span></h2>
+        </div>
+        <div class="distwo" id="distwo">
+          <h3>21-50 Learners</h3>
+          <h2>£69<span>/learner</span></h2>
+        </div>
+        <div class="disthree" id="disthree">
+          <h3>50+ Learners</h3>
+          <h2>£49<span>/learner</span></h2>
+        </div>
+      </div>
+      <h5 class="foy-cln">Choose Learners Number</h5>
+      <div class="price1" id="price">
+        £99 <span class="unit-price-text">/Learner</span>
+      </div>
+      <button class="button0" id="button101" onclick="decrement()">-</button>
+      <input
+        id="demoInput1"
+        type="number"
+        value="20"
+        min="5"
+        max="100"
+        disabled
+      />
+      <button class="button1" id="button102" onclick="increment()">+</button>
+      <div class="total-price" id="totalPrice">Total: £1980</div>
+      <div class="add-to-cart-parent">
+        <div class="add-to-cart-ctm">
+          <a
+            href="https://ibeautymakeup.co.uk/cart/?add-to-cart=443576&quantity=20"
+            data-quantity="20"
+            class="product_type_simple add_to_cart_button sa_ctm_btn1"
+            ><span class="a2n_icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="13"
+                height="14"
+                viewBox="0 0 13 14"
+                fill="none"
+              >
+                <path
+                  d="M1.08398 1.58334H2.02649C2.61149 1.58334 3.0719 2.08709 3.02315 2.66668L2.57357 8.06167C2.49773 8.94459 3.19648 9.70292 4.08481 9.70292H9.85357C10.6336 9.70292 11.3161 9.06376 11.3757 8.28918L11.6681 4.22668C11.7331 3.32751 11.0506 2.59626 10.1461 2.59626H3.15316"
+                  stroke="#64748B"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8.80208 12.4167C9.17603 12.4167 9.47917 12.1135 9.47917 11.7396C9.47917 11.3656 9.17603 11.0625 8.80208 11.0625C8.42814 11.0625 8.125 11.3656 8.125 11.7396C8.125 12.1135 8.42814 12.4167 8.80208 12.4167Z"
+                  stroke="#64748B"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4.4681 12.4167C4.84204 12.4167 5.14518 12.1135 5.14518 11.7396C5.14518 11.3656 4.84204 11.0625 4.4681 11.0625C4.09416 11.0625 3.79102 11.3656 3.79102 11.7396C3.79102 12.1135 4.09416 12.4167 4.4681 12.4167Z"
+                  stroke="#64748B"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4.875 4.83334H11.375"
+                  stroke="#64748B"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg></span
+            >Add To Cart</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function increment() {
+        document.getElementById("demoInput1").stepUp();
+      }
+
+      function decrement() {
+        document.getElementById("demoInput1").stepDown();
+      }
+      jQuery(document).ready(function ($) {
+        $("#button101, #button102").click(function () {
+          var inputVal = $("#demoInput1").val();
+          if (inputVal >= 5 && inputVal <= 20) {
+            jQuery("#disone").addClass("active");
+            jQuery("#distwo, #disthree").removeClass("active");
+            $(".sa_ctm_btn1").attr("data-quantity", inputVal);
+            $(".price1").html("£99<span>/Learners</span>");
+            $("#totalPrice").html(
+              "Total: £" + parseFloat((inputVal * 99).toFixed(2))
+            );
+            $(".sa_ctm_btn1").attr(
+              "href",
+              "/cart/?add-to-cart=55951&quantity=" + inputVal
+            );
+          } else if (inputVal >= 21 && inputVal <= 50) {
+            jQuery("#distwo").addClass("active");
+            jQuery("#disone, #disthree").removeClass("active");
+            $(".sa_ctm_btn1").attr("data-quantity", inputVal);
+            $(".price1").html("£69<span>/Learners</span>");
+            $("#totalPrice").html(
+              "Total: £" + parseFloat((inputVal * 69).toFixed(2))
+            );
+            $(".sa_ctm_btn1").attr(
+              "href",
+              "/cart/?add-to-cart=55951&quantity=" + inputVal
+            );
+          } else if (inputVal > 50) {
+            jQuery("#disthree").addClass("active");
+            jQuery("#disone, #distwo").removeClass("active");
+            $(".sa_ctm_btn1").attr("data-quantity", inputVal);
+            $(".price1").html("£49<span>/Learners</span>");
+            $("#totalPrice").html(
+              "Total: £" + parseFloat((inputVal * 49).toFixed(2))
+            );
+            $(".sa_ctm_btn1").attr(
+              "href",
+              "/cart/?add-to-cart=55951&quantity=" + inputVal
+            );
+          }
+        });
+
+        $("#disone").click(function () {
+          var inputVal = $("#demoInput1").val(5);
+          var inputVal1 = $("#demoInput1").val();
+          jQuery("#disone").addClass("active");
+          jQuery("#distwo, #disthree").removeClass("active");
+          $(".sa_ctm_btn1").attr("data-quantity", inputVal1);
+          $(".sa_ctm_btn1").attr(
+            "href",
+            "/cart/?add-to-cart=55951&quantity=" + inputVal1
+          );
+          $(".price1").html("£99<span>/Learners</span>");
+          $("#totalPrice").html(
+            "Total: £" + parseFloat((inputVal1 * 99).toFixed(2))
+          );
+        });
+
+        $("#distwo").click(function () {
+          var inputVal = $("#demoInput1").val(21);
+          var inputVal1 = $("#demoInput1").val();
+
+          jQuery("#distwo").addClass("active");
+          jQuery("#disone ,#disthree").removeClass("active");
+          $(".sa_ctm_btn1").attr("data-quantity", inputVal1);
+          $(".sa_ctm_btn1").attr(
+            "href",
+            "/cart/?add-to-cart=55951&quantity=" + inputVal1
+          );
+          $(".price1").html("£69<span>/Learners</span>");
+          $("#totalPrice").html(
+            "Total: £" + parseFloat((inputVal1 * 69).toFixed(2))
+          );
+        });
+        $("#disthree").click(function () {
+          var inputVal = $("#demoInput1").val(51);
+          var inputVal1 = $("#demoInput1").val();
+          console.log(inputVal1);
+          jQuery("#disthree").addClass("active");
+          jQuery("#disone, #distwo").removeClass("active");
+          $(".sa_ctm_btn1").attr("data-quantity", inputVal1);
+          $(".sa_ctm_btn1").attr(
+            "href",
+            "/cart/?add-to-cart=55951&quantity=" + inputVal1
+          );
+          $(".price1").html("£49<span>/Learners</span>");
+          $("#totalPrice").html(
+            "Total: £" + parseFloat((inputVal1 * 49).toFixed(2))
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
